@@ -9,8 +9,8 @@ user_tmp2 = strsplit(user_tmp{2},'\');
 user = user_tmp2{1};
 
 
-model_name = 'new_dataset_short_noise_h10_30k_H10H.mat';
-savepath_tmp = "C:\Users\" + user + "\OneDrive - Politecnico di Milano\in-context-bldc-data\simulated";
+model_name = 'ICC_paper_H10H.mat';
+savepath_tmp = fullfile(temp_name{1}, 'in-context-bldc-control', 'data', 'results_sim');
 folder_name = sprintf('statistical_analysis_model_%s', model_name(1:end-4));
 
 datapath = fullfile(savepath_tmp, folder_name);
@@ -299,10 +299,10 @@ disp(success_counter + limited_speed_counter + slow_sys_counters + fast_sys_coun
 out.omegas = omegas;
 out.time = tab.t;
 
-save("results_simulator_stack.mat", "out")
-
-
-save("results_simulator.mat", "metadata_full")
+% save("results_simulator_stack.mat", "out")
+% 
+% 
+% save("results_simulator.mat", "metadata_full")
 
 figure
 hold on

@@ -11,11 +11,7 @@ for i = 1:length(index_interpreter)
 end
 
 
-% models_to_test = ["new_dataset_long_noise_h10_40k_H10H", ...
-%                   "new_dataset_long_noise_scaled_h10_30k_H10H", ...
-%                   "new_dataset_short_noise_h10_30k_H10H", ...
-%                   "new_dataset_short_noise_scaled_h10_40k_H10H"];
-models_to_test = ["new_dataset_short_noise_h10_30k_H10H"];
+models_to_test = ["ICC_paper_H10H"];
 
 n_models = length(models_to_test);
 
@@ -24,14 +20,14 @@ final_scores = zeros(n_models, 6, 2, 5);
 
 
 
-temp_name = strsplit(pwd,'in-context-bldc');
+temp_name = strsplit(pwd,'in-context-bldc-control');
 user_tmp = strsplit(pwd,'Users\');
 user_tmp2 = strsplit(user_tmp{2},'\');
 user = user_tmp2{1};
 
 
 
-datapath = fullfile(temp_name{1}, 'in-context-bldc', 'data', 'transformer_v2_CAN_exp');
+datapath = fullfile(temp_name{1}, 'in-context-bldc-control', 'data', 'real', 'transformer_v2_CAN_exp');
 
 
 folder_list = dir(sprintf('%s',datapath));
@@ -255,11 +251,11 @@ for i = 1:n_models
     ylabel("$OS_\%$ [$\%$]")
     legend('Location', 'north','NumColumns',7)
     % title(models_to_test(i), Interpreter="none")
-    savefig("figs_paper/scatter_results_and_sim.fig")
-    saveas(gcf, "figs_paper/scatter_results_and_sim.png")
-    fig = gcf;
-    set(fig, 'PaperPositionMode', 'auto');
-    exportgraphics(fig, 'figs_paper/scatter_results_and_sim.pdf', 'ContentType', 'vector');
+    % savefig("figs_paper/scatter_results_and_sim.fig")
+    % saveas(gcf, "figs_paper/scatter_results_and_sim.png")
+    % fig = gcf;
+    % set(fig, 'PaperPositionMode', 'auto');
+    % exportgraphics(fig, 'figs_paper/scatter_results_and_sim.pdf', 'ContentType', 'vector');
 
 
 
