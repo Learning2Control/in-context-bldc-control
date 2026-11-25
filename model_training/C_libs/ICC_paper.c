@@ -8,8 +8,8 @@
  * which gcc maps to full-width AVX2 instructions automatically.
  *
  * API:  void gpt_forward(const float input[W_MAX*N_U], float output[W_MAX*N_Y]);
- * Compile (host):  gcc -O3 -march=native -DSTANDALONE -o gpt_model_v3 C_libs\ICC_paper.c -lm
- * Compile (SR6):   arm-none-eabi-gcc -O3 -mcpu=cortex-r52 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -DSTANDALONE -o gpt_model_v3.elf C_libs\ICC_paper.c -lm
+ * Compile (host):  gcc -O3 -march=native -DSTANDALONE -o gpt_model_v3 ./C_libs\ICC_paper.c -lm
+ * Compile (SR6):   arm-none-eabi-gcc -O3 -mcpu=cortex-r52 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -DSTANDALONE -o gpt_model_v3.elf ./C_libs\ICC_paper.c -lm
  */
 
 #include <math.h>

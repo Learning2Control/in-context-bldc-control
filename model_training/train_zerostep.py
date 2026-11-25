@@ -336,16 +336,8 @@ if __name__ == '__main__':
     best_epoch = iter_num -1
     for epoch in range(iter_num+1, cfg.max_iters):
 
-        #########################################
-        # aggiungi qua una stringa da mette nel file di check per savere il best model ogni 10k tipo iterazioni (e.g. checkpoint_stocazzo_***10k***.pt)
-
-        frequency = 10 #k
-
-        current_block = (epoch // (frequency * 1000) + 1) * frequency
-
-        name_suffix = '_' + str(current_block) + 'k'
-
-        checkpoint_name_to_save_file = checkpoint_name_to_save + name_suffix
+    
+        checkpoint_name_to_save
 
 
 
@@ -381,7 +373,7 @@ if __name__ == '__main__':
                 'cfg': cfg,
             }
 
-            torch.save(checkpoint, model_dir / f"{checkpoint_name_to_save_file}.pt")
+            torch.save(checkpoint, model_dir / f"{checkpoint_name_to_save}.pt")
 
         
         print("model: ", checkpoint_name_to_save)
